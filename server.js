@@ -26,23 +26,21 @@ app.post('/api/students', (req, res) => {
     // const name = req.body.name
     studentArr.push(name)
     rollbar.log('Student successfully added!')
-    res.status(200).send(student)
+    res.status(200).send(studentArr)
     }
     catch (err) {
         rollbar.critical("not found")
 })
 
-// app.get('/api/food', (req, res) => {
-//     try {
-//         res.sendFile(path.join(__dirname, './client/food.html))
-//         rollbar.info('HTML successful!')
-//     }
-//     catch (err) {
-//         alert(err + "not working")
-//         rollbar.warning("food endpoint doesn't exist")
-//         res.status(400)
-//     }
-// })
+app.get('/api/food', (req, res, hello) => {
+    try {
+        res.sendFile(path.join(__dirname, './client/food.html))
+        rollbar.info('HTML successful!')
+    }
+    catch (err) {
+        rollbar.critical("food endpoint doesn't exist")
+    }
+})
 
 
 
