@@ -20,31 +20,31 @@ app.get('/', (req,res) => {
 })
 
 
-app.post('/api/students', (req, res) => {
-    try {
-    const { name } = req.body
-    // const name = req.body.name
-    studentArr.push(name)
-    rollbar.log('Student successfully added!')
-    res.status(200).send(studentArr)
-    }
-    catch (err) {
-        rollbar.critical("not found")
-})
+// app.post('/api/students', (req, res) => {
+//     try {
+//         const { name } = req.body
+//         // const name = req.body.name
+//         studentArr.push(name)
+//         rollbar.log('Student successfully added!')
+//         res.status(200).send(studentArr)
+//     }
+//     catch (err) {
+//         rollbar.critical("not found")
+// })
 
 
-app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname, './client/food.html'))
-    rollbar.warning('WARNING')
-})
+// app.get('/', (req,res) => {
+//     res.sendFile(path.join(__dirname, './client/food.html'))
+//     rollbar.warning('WARNING')
+// })
 
 
 
-app.get('/', (req, res, hello) => {
-    res.sendFile(path.join(__dirname, './client/foods.html'))
-    rollbar.critical('CRITICAL')
+// app.get('/', (req, res, hello) => {
+//     res.sendFile(path.join(__dirname, './client/foods.html'))
+//     rollbar.critical('CRITICAL')
 
-})
+// })
 
 const port = process.env.PORT || 5666
 app.use(rollbar.errorHandler())
