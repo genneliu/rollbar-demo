@@ -17,6 +17,7 @@ app.get('/', (req,res) => {
 })
 
 const port = process.env.PORT || 5666
+app.use(rollbar.errorHandler())
 
 app.listen(port, () => {
     console.log(`Good Server: ${port}`)
