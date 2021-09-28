@@ -21,11 +21,15 @@ app.get('/', (req,res) => {
 
 
 app.post('/api/students', (req, res) => {
+    try {
     const { name } = req.body
     // const name = req.body.name
     studentArr.push(name)
     rollbar.log('Student successfully added!')
     res.status(200).send(studentArr)
+    }
+    catch (err) {
+        rollbar.critical("food endpoint doesn't exist")
 })
 
 app.get('/api/food', (req, res) => {
