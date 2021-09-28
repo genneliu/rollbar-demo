@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 const studentArr = []
 
 app.post('/api/students', (req, res) => {
-    const { name } = req.body
+    const { names } = req.body
     // const name = req.body.name
     studentArr.push(name)
 
