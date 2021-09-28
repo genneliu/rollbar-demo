@@ -3,6 +3,8 @@ const { truncateSync } = require('fs')
 const path = require('path')
 const app = express()
 
+app.use(express.json())
+
 const Rollbar = require('rollbar')
 
 const rollbar = new Rollbar({
