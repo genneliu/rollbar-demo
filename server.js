@@ -32,7 +32,7 @@ app.post('/api/students', (req, res) => {
         rollbar.critical("not found")
 })
 
-app.get('/api/food', (req, res, hello) => {
+app.get('/', (req, res) => {
     try {
         res.sendFile(path.join(__dirname, './client/food.html))
         rollbar.info('HTML successful!')
