@@ -28,7 +28,7 @@ app.post('/api/students', (req, res) => {
 
     // rollbar.log('Student successfully added!')
     rollbar.critical("student not added")
-    res.status(200).send(studentArr)
+    // res.status(200).send(studentArr)
 })
 
 const port = process.env.PORT || 5656
