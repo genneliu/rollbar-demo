@@ -1,6 +1,15 @@
 const express = require('express')
+const { truncateSync } = require('fs')
 const path = require('path')
 const app = express()
+
+const Rollbar = require('rollbar')
+
+const rollbar = new Rollbar({
+    accessToken: '57e20f10488d49f9af1013267c7434ea',
+    captureUncaught: true,
+    captureUnhandledRejections: true,
+})
 
 
 app.get('/', (req,res) => {
