@@ -22,9 +22,9 @@ app.get('/', (req, res) => {
 const studentArr = []
 
 app.post('/api/students', (req, res) => {
-    const { names } = req.body
+    const { name } = req.body
     // const name = req.body.name
-    studentArr.push(name)
+    // studentArr.push(name)
 
     // rollbar.log('Student successfully added!')
     rollbar.critical("student not added")
