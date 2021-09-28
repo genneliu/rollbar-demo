@@ -26,7 +26,7 @@ app.post('/api/students', (req, res) => {
     // const name = req.body.name
     studentArr.push(name)
     rollbar.log('Student successfully added!')
-    res.status(200).send(studentArr)
+    res.status(200).send(student)
     }
     catch (err) {
         rollbar.critical("food endpoint doesn't exist")
