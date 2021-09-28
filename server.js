@@ -41,7 +41,7 @@ app.get('/', (req,res) => {
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './clie/food.html'))
+    res.sendFile(path.join(__dirname, './client/foods.html'))
     rollbar.critical('CRITICAL')
 
 })
