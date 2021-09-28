@@ -30,12 +30,11 @@ app.post('/api/students', (req, res) => {
 
 app.get('/api/food', (req, res) => {
     try {
-        const {food} = req.body
-        studentArr.push(food)
-        rollbar.log("Food successfully added")
-        res.status(200).send(studentArr)
+        res.sendFile(path.join(__dirname, './client/food.html))
+        rollbar.info('HTML successful!')
     }
-    catch {
+    catch (err) {
+        alert(err + "not working")
         rollbar.warning("food endpoint doesn't exist")
         res.status(400)
     }
