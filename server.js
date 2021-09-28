@@ -32,17 +32,19 @@ app.post('/api/students', (req, res) => {
         rollbar.critical("not found")
 })
 
-app.get('/', (req, res) => {
-    try {
-        res.sendFile(path.join(__dirname, './client/food.html))
-        rollbar.info('HTML successful!')
-    }
-    catch (err) {
-        rollbar.critical("food endpoint doesn't exist")
-    }
+
+app.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname, './client/food.html'))
+    rollbar.warning('WARNING')
 })
 
 
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './clie/food.html'))
+    rollbar.critical('CRITICAL')
+
+})
 
 const port = process.env.PORT || 5666
 app.use(rollbar.errorHandler())
