@@ -24,17 +24,22 @@ app.post('/api/students', (req, res) => {
     const { name } = req.body
     // const name = req.body.name
     studentArr.push(name)
+    rollbar.log('Student successfully added!')
+    res.status(200).send(studentArr)
+})
+
+app.post('/api/food', (req, res) => {
     try {
-        rollbar.log('Student successfully added!')
+        const {food} = req.body
+        studentArr.push(food)
+        rollbar.log("Food successfully added")
         res.status(200).send(studentArr)
     }
     catch {
-        rollbar.log("error", "Student was not added")
+        rollbar.warning("food endpoint doesn't exist")
         res.status(400)
     }
 })
-
-
 
 
 
