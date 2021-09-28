@@ -20,17 +20,21 @@ app.get('/', (req,res) => {
 })
 
 
-
-const studentArr = []
-
 app.post('/api/students', (req, res) => {
-    const { name } = req.body
+    const { names } = req.body
     // const name = req.body.name
-    studentArr.push(name)
-
-    rollbar.log('Student successfully added!')
-    res.status(200).send(studentArr)
+    studentArr.push(names)
+    try {
+        rollbar.log('Student successfully added!')
+        res.status(200).send(studentArr)
+    }
+    catch {
+        rollbar.log("error", "Student was not added")
+        res.status(400)
+    }
 })
+
+
 
 
 
