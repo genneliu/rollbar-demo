@@ -23,13 +23,20 @@ const studentArr = []
 
 app.post('/api/students', (req, res) => {
     const { names } = req.body
-    // const name = req.body.name
-    // studentArr.push(name)
+    const name = req.body.name
+    studentArr.push(name)
 
-    // rollbar.log('Student successfully added!')
-    rollbar.warning("warning student not added")
+    rollbar.log('Student successfully added!')
+    // rollbar.warning("warning student not added")
     // res.status(200).send(studentArr)
 })
+
+app.get('/api/message', (req, res) => {
+    const message= "Ami tomake valobashi";
+    rollbar.info("Message successfully sent")
+    res.status(200).send(message);
+  });
+
 
 const port = process.env.PORT || 5656
 

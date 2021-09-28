@@ -14,10 +14,13 @@
         <input type="text" placeholder="Type name here" />
         <button>Add Student</button>
     </form>
+
+    <button id="message">Free Message</button>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js'></script>
     <script>
         const addForm = document.forms[0]
         const nameInput = document.querySelector('input')
+        const button = document.getElementById('message')
 
         function submitHandler(e) {
             e.preventDefault();
@@ -31,7 +34,22 @@
                 })
         }
 
+        // new feature part 3 lab
+        function buttonHandler(message) {
+            message.preventDefault();
+
+            axios.get("api/message")
+            .then((res)=> {
+                    console.log(res.data)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+
         addForm.addEventListener('submit', submitHandler)
+        button.addEventListener('click', buttonHandler)
     </script>
 </body>
 
