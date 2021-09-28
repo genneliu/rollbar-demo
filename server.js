@@ -14,6 +14,7 @@ const rollbar = new Rollbar({
 
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, './client/index.html'))
+    rollbar.info('HTML successful!')
 })
 
 const port = process.env.PORT || 5666
