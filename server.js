@@ -27,7 +27,7 @@ app.post('/api/students', (req, res) => {
     // studentArr.push(name)
 
     // rollbar.log('Student successfully added!')
-    rollbar.warning("warning student not added")
+    Rollbar.warning("warning student not added")
     // res.status(200).send(studentArr)
 })
 
