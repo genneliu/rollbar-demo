@@ -28,7 +28,7 @@ app.post('/api/students', (req, res) => {
     res.status(200).send(studentArr)
 })
 
-app.post('/api/food', (req, res) => {
+app.get('/api/food', (req, res) => {
     try {
         const {food} = req.body
         studentArr.push(food)
