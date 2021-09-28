@@ -29,20 +29,20 @@ app.post('/api/students', (req, res) => {
     res.status(200).send(student)
     }
     catch (err) {
-        rollbar.critical("food endpoint doesn't exist")
+        rollbar.critical("not found")
 })
 
-app.get('/api/food', (req, res) => {
-    try {
-        res.sendFile(path.join(__dirname, './client/food.html))
-        rollbar.info('HTML successful!')
-    }
-    catch (err) {
-        alert(err + "not working")
-        rollbar.warning("food endpoint doesn't exist")
-        res.status(400)
-    }
-})
+// app.get('/api/food', (req, res) => {
+//     try {
+//         res.sendFile(path.join(__dirname, './client/food.html))
+//         rollbar.info('HTML successful!')
+//     }
+//     catch (err) {
+//         alert(err + "not working")
+//         rollbar.warning("food endpoint doesn't exist")
+//         res.status(400)
+//     }
+// })
 
 
 
