@@ -7,7 +7,7 @@ app.use(express.json())
 const Rollbar = require('rollbar')
 
 const rollbar = new Rollbar({
-    accessToken: '57e20f10488d49f9af1013267c7434ea',
+    accessToken: process.env.ROLLBAR_API_KEY,
     captureUncaught: true,
     captureUnhandledRejections: true
 })
